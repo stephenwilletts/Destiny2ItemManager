@@ -96,26 +96,26 @@ with open('RecommendedPerks.csv') as csvfile:
 # Get Armor from CSV
 armor = []
 with open('destinyArmor.csv') as csvfile:
-    data = csv.reader(csvfile)
+    data = csv.DictReader(csvfile)
     for row in data:
-        if (row[4] != 'Exotic'):
+        if (row['Tier'] != 'Exotic'):
             arm = Armor()
-            arm.name = row[0]
-            arm.hash = row[1]
-            arm.id = row[2]
-            arm.tag = row[3]
-            arm.tier = row[4]
-            arm.type = row[5]
-            arm.equippable = row[6]
-            arm.power = row[7]
-            arm.masterworkType = row[8]
-            arm.masterworkTier = row[9]
-            arm.mobility = row[18]
-            arm.recovery = row[19]
-            arm.resilience = row[20]
-            arm.notes = row[21]
-            for x in range(22, len(row)):
-                arm.perks.append(row[x].replace('*', ''))
+            arm.name = row['Name']
+            arm.hash = row['Hash']
+            arm.id   = row['Id']
+            arm.tag  = row['Tag']
+            arm.tier = row['Tier']
+            arm.type = row['Type']
+            arm.equippable = row['Equippable']
+            arm.power = row['Power']
+            arm.masterworkType = row['Masterwork Type']
+            arm.masterworkTier = row['Masterwork Tier']
+            arm.mobility = row['Mobility']
+            arm.recovery = row['Recovery']
+            arm.resilience = row['Resilience']
+            arm.notes = row['Notes']
+            for x in range(1,11):
+                arm.perks.append(row['Perks {}'.format(x)].replace('*', ''))
 
             if arm.tag not in ['Tag', 'favorite']:
                 arm.tag = None

@@ -107,7 +107,7 @@ with open('destinyArmor.csv') as csvfile:
             arm.tier = row['Tier']
             arm.type = row['Type']
             arm.equippable = row['Equippable']
-            arm.power = row['Power']
+            arm.power = int(row['Power'])
             arm.masterworkType = row['Masterwork Type']
             arm.masterworkTier = row['Masterwork Tier']
             arm.mobility = row['Mobility']

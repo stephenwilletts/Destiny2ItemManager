@@ -187,6 +187,7 @@ for perk_set in perk_sets:
 # Export CSV
 with open('DestinyArmorExport.csv', 'w', newline='') as csvfile:
     data = csv.writer(csvfile)
+    data.writerow([ "Hash", "Id", "Tag", "Notes" ])
     for arm in armor:
         data.writerow([
             arm.hash,
